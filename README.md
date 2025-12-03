@@ -138,8 +138,9 @@ Le site doit inclure les fonctionnalités suivantes :
   Le projet est correctement versionné avec des commits clairs et fréquents,  
   et le workflow Git est respecté.
 
-Architecture du projet : 
+## Architecture du projet
 
+```md
 ReeditProject/
 │
 ├─ bin/
@@ -192,7 +193,7 @@ ReeditProject/
 │       └─ TagRepository.php
 │
 ├─ templates/
-│   ├─ base.html.twig          # Layout principal pour header/footer/navbar
+│   ├─ base.html.twig
 │   ├─ User/
 │   │   └─ userAdmin.html.twig
 │   ├─ Site/
@@ -228,4 +229,5 @@ ReeditProject/
 ├─ composer.json
 ├─ composer.lock
 └─ symfony.lock
+
 
