@@ -138,8 +138,9 @@ Le site doit inclure les fonctionnalités suivantes :
   Le projet est correctement versionné avec des commits clairs et fréquents,  
   et le workflow Git est respecté.
 
-Architecture du projet : 
+## Architecture du projet : 
 
+```
 ReeditProject/
 │
 ├─ bin/
@@ -228,4 +229,4 @@ ReeditProject/
 ├─ composer.json
 ├─ composer.lock
 └─ symfony.lock
-
+```
