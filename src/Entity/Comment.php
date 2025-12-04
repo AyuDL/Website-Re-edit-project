@@ -22,10 +22,10 @@ class Comment
     private \DateTimeImmutable $date;
 
     #[ORM\ManyToOne(targetEntity: Post::class, inversedBy: 'comments')]
-    private Collection $posts;
+    private Post $posts;
 
     #[ORM\ManyToOne(targetEntity: User::class, inversedBy: 'comments')]
-    private Collection $users;
+    private User $users;
 
     #[ORM\ManyToMany(targetEntity: File::class, inversedBy: 'comments')]
     private Collection $files;
@@ -33,8 +33,6 @@ class Comment
     public function __construct()
     {
         $this->files = new ArrayCollection();
-        $this->users = new ArrayCollection();
-        $this->posts = new ArrayCollection();
     }
 
     public function getId(): int

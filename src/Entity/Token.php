@@ -22,12 +22,7 @@ class Token
     private string $type;
 
     #[ORM\ManyToOne(targetEntity: User::class, inversedBy: 'tokens')]
-    private Collection $users;
-
-    public function __construct()
-    {
-        $this->users = new ArrayCollection();
-    }
+    private User $users;
 
     public function getId(): int
     {

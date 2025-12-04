@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
@@ -35,13 +37,20 @@ class User
     private bool $isAdmin;
 
     #[ORM\OneToMany(targetEntity: Token::class, mappedBy: 'users')]
-    private Token $tokens;
+    private Collection $tokens;
 
     #[ORM\OneToMany(targetEntity: Post::class, mappedBy: 'users')]
-    private Post $posts;
+    private Collection $posts;
 
     #[ORM\OneToMany(targetEntity: User::class, mappedBy: 'users')]
-    private Comment $comments;
+    private Collection $comments;
+
+    public function __construct()
+    {
+        $this->tokens = new ArrayCollection();
+        $this->posts = new ArrayCollection();
+        $this->comments = new ArrayCollection();
+    }
 
     public function getId(): int
     {

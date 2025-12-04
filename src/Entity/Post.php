@@ -22,12 +22,7 @@ class Post
     private \DateTimeImmutable $datePost;
 
     #[ORM\ManyToOne(targetEntity: User::class, inversedBy: 'posts')]
-    private Collection $users;
-
-    public function __construct()
-    {
-        $this->users = new ArrayCollection();
-    }
+    private User $users;
 
     public function getId(): int
     {

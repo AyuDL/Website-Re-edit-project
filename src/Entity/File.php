@@ -24,10 +24,6 @@ class File
     #[ORM\ManyToMany(targetEntity: Comment::class, mappedBy: 'files')]
     private Collection $comments;
 
-    public function __construct()
-    {
-        $this->comments = new ArrayCollection();
-    }
     public function getId(): int
     {
         return $this->id;

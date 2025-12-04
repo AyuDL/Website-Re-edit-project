@@ -19,12 +19,7 @@ class Tag
     private string $title;
 
     #[ORM\ManyToOne(targetEntity: Post::class, inversedBy: 'tags')]
-    private ?Collection $posts = null;
-
-    public function __construct()
-    {
-        $this->posts = new ArrayCollection();
-    }
+    private ?Post $posts = null;
 
     public function getId(): int
     {
