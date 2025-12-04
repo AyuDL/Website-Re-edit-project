@@ -36,13 +36,13 @@ class User
     #[ORM\Column(type: Types::BOOLEAN)]
     private bool $isAdmin;
 
-    #[ORM\OneToMany(targetEntity: Token::class, mappedBy: 'users')]
+    #[ORM\OneToMany(targetEntity: Token::class, mappedBy: 'user')]
     private Collection $tokens;
 
-    #[ORM\OneToMany(targetEntity: Post::class, mappedBy: 'users')]
+    #[ORM\OneToMany(targetEntity: Post::class, mappedBy: 'user')]
     private Collection $posts;
 
-    #[ORM\OneToMany(targetEntity: User::class, mappedBy: 'users')]
+    #[ORM\OneToMany(targetEntity: User::class, mappedBy: 'user')]
     private Collection $comments;
 
     public function __construct()
@@ -134,34 +134,34 @@ class User
         return $this;
     }
 
-    public function getTokens(): Token
+    public function getTokens(): Collection
     {
         return $this->tokens;
     }
 
-    public function setTokens(Token $tokens): self
+    public function setTokens(Collection $tokens): self
     {
         $this->tokens = $tokens;
         return $this;
     }
 
-    public function getPosts(): Post
+    public function getPosts(): Collection
     {
         return $this->posts;
     }
 
-    public function setPosts(Post $posts): self
+    public function setPosts(Collection $posts): self
     {
         $this->posts = $posts;
         return $this;
     }
 
-    public function getComments(): Comment
+    public function getComments(): Collection
     {
         return $this->comments;
     }
 
-    public function setComments(Comment $comments): self
+    public function setComments(Collection $comments): self
     {
         $this->comments = $comments;
         return $this;

@@ -22,7 +22,7 @@ class Token
     private string $type;
 
     #[ORM\ManyToOne(targetEntity: User::class, inversedBy: 'tokens')]
-    private User $users;
+    private User $user;
 
     public function getId(): int
     {
@@ -51,15 +51,17 @@ class Token
         return $this;
     }
 
-    public function getUsers(): Collection
+    public function getUser(): User
     {
-        return $this->users;
+        return $this->user;
     }
 
-    public function setUsers(Collection $users): self
+    public function setUser(User $user): self
     {
-        $this->users = $users;
+        $this->user = $user;
         return $this;
     }
+
+
 
 }

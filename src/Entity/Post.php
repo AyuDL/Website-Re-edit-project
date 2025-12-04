@@ -22,7 +22,18 @@ class Post
     private \DateTimeImmutable $datePost;
 
     #[ORM\ManyToOne(targetEntity: User::class, inversedBy: 'posts')]
-    private User $users;
+    private User $user;
+
+    #[ORM\OneToMany(targetEntity: Comment::class, mappedBy: 'post')]
+    private Collection $comments;
+
+    #[ORM\OneToMany(targetEntity: Tag::class, mappedBy: 'post')]
+    private Collection $tags;
+
+    public function __construct()
+    {
+        $this->comments = new ArrayCollection();
+    }
 
     public function getId(): int
     {
@@ -51,16 +62,37 @@ class Post
         return $this;
     }
 
-    public function getUsers(): Collection
+    public function getUser(): User
     {
-        return $this->users;
+        return $this->user;
     }
 
-    public function setUsers(Collection $users): self
+    public function setUser(User $user): self
     {
-        $this->users = $users;
+        $this->user = $user;
         return $this;
     }
 
+    public function getComments(): Collection
+    {
+        return $this->comments;
+    }
+
+    public function setComments(Collection $comments): self
+    {
+        $this->comments = $comments;
+        return $this;
+    }
+
+    public function getTags(): Collection
+    {
+        return $this->tags;
+    }
+
+    public function setTags(Collection $tags): self
+    {
+        $this->tags = $tags;
+        return $this;
+    }
 
 }

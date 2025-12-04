@@ -19,7 +19,7 @@ class Tag
     private string $title;
 
     #[ORM\ManyToOne(targetEntity: Post::class, inversedBy: 'tags')]
-    private ?Post $posts = null;
+    private ?Post $post = null;
 
     public function getId(): int
     {
@@ -37,16 +37,15 @@ class Tag
         return $this;
     }
 
-    public function getPosts(): ?Collection
+    public function getPost(): ?Post
     {
-        return $this->posts;
+        return $this->post;
     }
 
-    public function setPosts(?Collection $posts): self
+    public function setPost(?Post $post): self
     {
-        $this->posts = $posts;
+        $this->post = $post;
         return $this;
     }
-
 
 }

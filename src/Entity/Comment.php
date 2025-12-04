@@ -22,10 +22,10 @@ class Comment
     private \DateTimeImmutable $date;
 
     #[ORM\ManyToOne(targetEntity: Post::class, inversedBy: 'comments')]
-    private Post $posts;
+    private Post $post;
 
     #[ORM\ManyToOne(targetEntity: User::class, inversedBy: 'comments')]
-    private User $users;
+    private User $user;
 
     #[ORM\ManyToMany(targetEntity: File::class, inversedBy: 'comments')]
     private Collection $files;
@@ -51,28 +51,6 @@ class Comment
         return $this;
     }
 
-    public function getPosts(): Collection
-    {
-        return $this->posts;
-    }
-
-    public function setPosts(Collection $posts): self
-    {
-        $this->posts = $posts;
-        return $this;
-    }
-
-    public function getUsers(): Collection
-    {
-        return $this->users;
-    }
-
-    public function setUsers(Collection $users): self
-    {
-        $this->users = $users;
-        return $this;
-    }
-
     public function getFiles(): Collection
     {
         return $this->files;
@@ -92,6 +70,28 @@ class Comment
     public function setDate(\DateTimeImmutable $date): self
     {
         $this->date = $date;
+        return $this;
+    }
+
+    public function getPost(): Post
+    {
+        return $this->post;
+    }
+
+    public function setPost(Post $post): self
+    {
+        $this->post = $post;
+        return $this;
+    }
+
+    public function getUser(): User
+    {
+        return $this->user;
+    }
+
+    public function setUser(User $user): self
+    {
+        $this->user = $user;
         return $this;
     }
 
