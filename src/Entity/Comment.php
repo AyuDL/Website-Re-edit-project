@@ -95,4 +95,11 @@ class Comment
         return $this;
     }
 
+    public function addFile(File $file): void
+    {
+        if ($this->files->contains($file)) {
+            return;
+        }
+        $this->files->add($file);
+    }
 }
