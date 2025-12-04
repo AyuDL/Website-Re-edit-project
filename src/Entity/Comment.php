@@ -18,11 +18,8 @@ class Comment
     #[ORM\Column(type: Types::STRING)]
     private string $content;
 
-    #[ORM\Column(type: Types::STRING)]
-    private string $author;
-
     #[ORM\Column(type: Types::DATETIME_IMMUTABLE)]
-    private string $date;
+    private \DateTimeImmutable $date;
 
     #[ORM\ManyToOne(targetEntity: Post::class, inversedBy: 'comments')]
     private Collection $posts;
@@ -56,28 +53,6 @@ class Comment
         return $this;
     }
 
-    public function getAuthor(): string
-    {
-        return $this->author;
-    }
-
-    public function setAuthor(string $author): self
-    {
-        $this->author = $author;
-        return $this;
-    }
-
-    public function getDate(): string
-    {
-        return $this->date;
-    }
-
-    public function setDate(string $date): self
-    {
-        $this->date = $date;
-        return $this;
-    }
-
     public function getPosts(): Collection
     {
         return $this->posts;
@@ -108,6 +83,17 @@ class Comment
     public function setFiles(Collection $files): self
     {
         $this->files = $files;
+        return $this;
+    }
+
+    public function getDate(): ?\DateTimeImmutable
+    {
+        return $this->date;
+    }
+
+    public function setDate(\DateTimeImmutable $date): self
+    {
+        $this->date = $date;
         return $this;
     }
 

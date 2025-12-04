@@ -19,7 +19,7 @@ class Post
     private string $title;
 
     #[ORM\Column(type: Types::DATETIME_IMMUTABLE)]
-    private string $datePost;
+    private \DateTimeImmutable $datePost;
 
     #[ORM\ManyToOne(targetEntity: User::class, inversedBy: 'posts')]
     private Collection $users;
@@ -45,12 +45,12 @@ class Post
         return $this;
     }
 
-    public function getDatePost(): string
+    public function getDatePost(): ?\DateTimeImmutable
     {
         return $this->datePost;
     }
 
-    public function setDatePost(string $datePost): self
+    public function setDatePost(\DateTimeImmutable $datePost): self
     {
         $this->datePost = $datePost;
         return $this;
