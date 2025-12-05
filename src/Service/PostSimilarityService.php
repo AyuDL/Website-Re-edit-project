@@ -6,7 +6,6 @@ use App\Repository\PostRepository;
 
 class PostSimilarityService
 {
-
     private PostRepository $postRepository;                         #Global pour instancier la variable de mon Repo pour accéder à mes fonctions doctrine.
 
     public function __construct(PostRepository $postRepository)
@@ -34,10 +33,10 @@ class PostSimilarityService
         $data = $this->splitTag();                                   #Je récupère tous les tags
         $scoreArray = [];
 
-        foreach ($data as $tags){                                    #Pour chaque tags,
+        foreach ($data as $posts){                                    #Pour chaque tags,
             $score = 0;                                              #Je remets / crée la variable du score à 0 pour prendre le nouveau score.
             $average = 0;
-            foreach ($tags as $words){
+            foreach ($posts as $words){
                 foreach($userInput as $userWords) {
                     if (strtolower($userWords) == strtolower($words)) {         #Je compare chaque mots en les mettant en minuscule.
                         $score += 1;                                            #Si un mot est égale, je mets un +1 à mon score
@@ -45,10 +44,10 @@ class PostSimilarityService
                 }
             }
             if ($score != 0){                                        #Si le score n'est pas à 0,
-                $average = $score / count($tags);                    #Je fais la moyenne.
+                $average = $score / count($posts);                    #Je fais la moyenne.
             }
 
-            $scoreArray[] = $average;                                #Soit je mets un 0, soit je mets la moyenne.
+            $scoreArray[] = ['score' => $average, 'post' => $posts];
         }
 
     return $scoreArray;
