@@ -2,7 +2,9 @@
 
 namespace App\Repository;
 
-class UserRepository
+use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+
+class UserRepository extends ServiceEntityRepository
 {
 
 }

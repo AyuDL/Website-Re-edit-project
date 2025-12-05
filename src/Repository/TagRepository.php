@@ -2,7 +2,10 @@
 
 namespace App\Repository;
 
-class TagRepository
+use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+
+class TagRepository extends ServiceEntityRepository
 {
 
 }
+

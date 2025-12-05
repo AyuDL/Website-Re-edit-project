@@ -2,7 +2,9 @@
 
 namespace App\Repository;
 
-class PostRepository
+use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+
+class PostRepository extends ServiceEntityRepository
 {
 
 }

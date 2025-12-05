@@ -2,7 +2,9 @@
 
 namespace App\Controller;
 
-class PostController
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+
+class PostController extends AbstractController
 {
 
 }

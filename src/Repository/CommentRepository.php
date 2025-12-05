@@ -2,7 +2,9 @@
 
 namespace App\Repository;
 
-class CommentRepository
+use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+
+class CommentRepository extends ServiceEntityRepository
 {
 
 }

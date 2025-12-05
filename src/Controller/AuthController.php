@@ -2,7 +2,9 @@
 
 namespace App\Controller;
 
-class AuthController
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+
+class AuthController extends AbstractController
 {
 
 }
