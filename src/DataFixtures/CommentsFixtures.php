@@ -8,8 +8,9 @@ use App\Entity\Post;
 use App\Entity\User;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
+use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
 
-class CommentsFixtures extends Fixture
+class CommentsFixtures extends Fixture implements OrderedFixtureInterface
 {
 
     public function load(ObjectManager $manager): void
@@ -37,5 +38,10 @@ class CommentsFixtures extends Fixture
         }
 
         $manager->flush();
+    }
+
+    public function getOrder(): int
+    {
+        return 4;
     }
 }

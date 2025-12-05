@@ -4,9 +4,11 @@ namespace App\DataFixtures;
 
 use App\Entity\Post;
 use App\Entity\Tag;
+use Doctrine\Bundle\FixturesBundle\Fixture;
+use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
 use Doctrine\Persistence\ObjectManager;
 
-class TagsFixtures
+class TagsFixtures extends Fixture implements OrderedFixtureInterface
 {
     public function load(ObjectManager $manager): void
     {
@@ -24,5 +26,10 @@ class TagsFixtures
         }
 
         $manager->flush();
+    }
+
+    public function getOrder(): int
+    {
+        return 5;
     }
 }

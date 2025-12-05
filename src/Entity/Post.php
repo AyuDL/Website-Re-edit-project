@@ -94,5 +94,4 @@ class Post
         $this->tags = $tags;
         return $this;
     }
-
 }

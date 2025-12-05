@@ -4,10 +4,12 @@ namespace App\DataFixtures;
 
 use App\Entity\Token;
 use App\Entity\User;
+use Doctrine\Bundle\FixturesBundle\Fixture;
+use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
 use Doctrine\Persistence\ObjectManager;
 use Random\RandomException;
 
-class TokensFixtures
+class TokensFixtures extends Fixture implements OrderedFixtureInterface
 {
     /**
      * @throws RandomException
@@ -29,5 +31,10 @@ class TokensFixtures
         }
 
         $manager->flush();
+    }
+
+    public function getOrder(): int
+    {
+        return 6;
     }
 }

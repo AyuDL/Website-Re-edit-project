@@ -4,9 +4,10 @@ namespace App\DataFixtures;
 
 use App\Entity\File;
 use Doctrine\Bundle\FixturesBundle\Fixture;
+use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
 use Doctrine\Persistence\ObjectManager;
 
-class FilesFixtures extends Fixture
+class FilesFixtures extends Fixture implements OrderedFixtureInterface
 {
     public function load(ObjectManager $manager): void
     {
@@ -19,5 +20,10 @@ class FilesFixtures extends Fixture
         }
 
         $manager->flush();
+    }
+
+    public function getOrder(): int
+    {
+        return 3;
     }
 }
