@@ -13,7 +13,7 @@ class PostSimilarityService
         $this->postRepository = $postRepository;
     }
 
-    private function splitTag(): array                              #Fonction qui va permettre de spliter tous les tags de la base de données en mots.
+    private function splitTagData(): array                              #Fonction qui va permettre de spliter tous les tags de la base de données en mots.
     {
         $allPosts = $this->postRepository->findAll();               #Je récupère toutes les données de la base de données.
         $data = [];
@@ -28,9 +28,9 @@ class PostSimilarityService
         return $data;
     }
 
-    public function scoreSimilarity(array $userInput): array         #Fonction qui va donner un score de similarité par rapport à la recherche client. Ce score va servir à la pertinence des résultats.
+    public function scoreSimilarity(array $userInput): array         #Fonction qui va donner un score de similarité par rapport à la recherche client.
     {
-        $data = $this->splitTag();                                   #Je récupère tous les tags
+        $data = $this->splitTagData();                                   #Je récupère tous les tags
         $scoreArray = [];
 
         foreach ($data as $posts){                                    #Pour chaque tags,
